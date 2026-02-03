@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Dodo ❤️</title>
+<style>
+body {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: monospace;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 60px;
+}
+
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+}
+
+#yes {
+  background: #238636;
+  color: white;
+}
+
+#no {
+  background: #da3633;
+  color: white;
+  position: absolute;
+}
+
+#result {
+  display: none;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.bear {
+  font-size: 60px;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Initializing love protocol… ❤️</h1>
+
+<pre>
+Connecting hearts...
+Target found: Dodo 💙
+Status: Deeply in love
+</pre>
+
+<p>Dodo, will you be my Valentine forever?</p>
+
+<button id="yes" onclick="sayYes()">YES 💙</button>
+<button id="no">NO 💔</button>
+
+<div id="result">
+  <div class="bear">🧸❤️</div>
+  <p>
+    You just made my heart skip a beat.<br><br>
+    Loving you is my favorite decision.<br>
+    I choose you today, tomorrow, and always.<br><br>
+    Forever yours,<br>
+    ❤️
+  </p>
+</div>
+
+<script>
+// Hearts rain
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}
+setInterval(createHeart, 300);
+
+// NO button escape
+const noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * 80 + "vw";
+  noBtn.style.top = Math.random() * 80 + "vh";
+});
+
+// YES click
+function sayYes() {
+  document.getElementById("result").style.display = "block";
+}
+</script>
+
+</body>
+</html>
